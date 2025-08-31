@@ -142,6 +142,7 @@ export default function RootLayout({
             }
           `
         }} />
+        <meta name="google-site-verification" content="iQTmra5rFv7fTzqzW7WXxsZroa6EKbzjAqw_FJA0rp4" />
       </head>
       <body
         className={`${cairo.variable} ${inter.variable} font-cairo antialiased bg-black text-white overflow-x-hidden`}
