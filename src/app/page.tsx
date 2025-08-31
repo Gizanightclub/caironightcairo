@@ -67,7 +67,7 @@ export default function Home() {
       {/* Floating WhatsApp Button */}
       <div className="fixed bottom-6 left-6 z-50">
         <a
-          href="https://wa.me/201013932585?text= ممكن اعرف تفاصيل الحجز و الاسعار ؟"
+          href="https://wa.me/201286110562?text= ممكن اعرف تفاصيل الحجز و الاسعار ؟"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full text-white shadow-2xl hover:scale-110 transition-all duration-300 animate-bounce"

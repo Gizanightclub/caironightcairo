@@ -66,13 +66,13 @@ export const metadata: Metadata = {
   authors: [{ name: "Night Club VIP" }],
   openGraph: {
     type: "website",
-    url: "https://yourwebsite.com/",
-    title: "Night Club VIP | أفضل نايت كلوب في القاهرة",
+    url: "https://nightclubcairo.vercel.app/",
+    title: "فضل نايت كلوب في القاهرة",
     description:
-      "استمتع بأفضل سهرة ليلية في القاهرة مع حفلات مميزة وخدمة VIP فاخرة.",
+      "🔥 أفضل نايت كلوب في مصر لعام 2025 | احجز الآن في Night Club Egypt واستمتع بحفلات ليلية فاخرة وخدمة VIP استثنائية في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين، مدينة نصر، هليوبوليس. عروض حية، موسيقى عالمية، سهرات لا تُنسى، أجواء رائعة مع أفضل DJs. نقدم خدمات حفلات أعياد الميلاد، المناسبات الخاصة، الفعاليات الشركات. أفضل ترفيه ليلي في مصر! 📞 اتصل الآن: 01286110562",
     images: [
       {
-        url: "https://yourwebsite.com/cover.jpg",
+        url: "https://nightclubcairo.vercel.app/images/nightclub4.jpeg",
         width: 1200,
         height: 630,
         alt: "Night Club VIP Cairo",
@@ -81,13 +81,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Night Club VIP | أفضل نايت كلوب في القاهرة",
+    title: "Night Club نايت كلوب  ",
     description:
       "استمتع بأفضل سهرة ليلية في القاهرة مع حفلات مميزة وخدمة VIP فاخرة.",
-    images: ["https://yourwebsite.com/cover.jpg"],
+    images: ["https://nightclubcairo.vercel.app/images/nightclub3.jpeg"],
   },
   alternates: {
-    canonical: "https://yourwebsite.com/",
+    canonical: "https://nightclubcairo.vercel.app/",
   },
 };
 
@@ -125,8 +125,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              url: "https://www.nightclubegypt.com",
-              logo: "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+              url: "https://nightclubcairo.vercel.app/",
+              logo: "https://nightclubcairo.vercel.app/images/nightclub3.jpeg",
             }),
           })}
         />
@@ -159,9 +159,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "NightClub",
               name: "Night Club VIP",
-              image: "https://yourwebsite.com/logo.png",
-              "@id": "https://yourwebsite.com/",
-              url: "https://yourwebsite.com/",
+              image: "https://nightclubcairo.vercel.app/logo.png",
+              "@id": "https://nightclubcairo.vercel.app/",
+              url: "https://nightclubcairo.vercel.app/",
               telephone: "+201012345678",
               priceRange: "$$$",
               address: {
@@ -205,7 +205,9 @@ export default function RootLayout({
             }),
           }}
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-70LH6MQ3QN"></script>
       </body>
+      
     </html>
   );
 }
