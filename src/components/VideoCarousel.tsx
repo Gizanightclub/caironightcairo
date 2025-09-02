@@ -35,7 +35,7 @@ const defaultVideos: VideoData[] = [
   {
     id: "1",
     src: "/videos/nightclub-promo.mp4",
-    poster: "images/nightclub1.jpeg",
+    poster: "/images/nightclub1.jpeg",
     title: "سهرة خليجي مميزة",
     description: "استمتع بأفضل السهرات الخليجية  ",
     duration: "2:30"
@@ -43,7 +43,7 @@ const defaultVideos: VideoData[] = [
   {
     id: "2",
     src: "/videos/nightlife.mp4",
-    poster: "images/nightclubegypt.com2.jpg",
+    poster: "/images/nightclubegypt.com2.jpg",
     title: "أجواء النايت كلوب",
     description: "اكتشف الأجواء الفاخرة والترفيه المميز",
     duration: "1:45"
@@ -448,7 +448,7 @@ const VideoCarousel = ({
         }
 
         .swiper-pagination-bullet-active-custom {
-          background: rgba(3, 7, 1, 1) !important;
+          background: rgba(251, 191, 36, 1) !important;
           transform: scale(1.25) !important;
         }
 

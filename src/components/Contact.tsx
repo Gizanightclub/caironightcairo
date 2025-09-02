@@ -212,9 +212,10 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     <section
       id="contact"
       className="relative min-h-screen py-10 md:py-20 flex items-center bg-black overflow-hidden"
+      aria-labelledby="contact-title"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black">
-        <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black" aria-hidden="true">
+        <div className="absolute inset-0" aria-hidden="true">
           {particles.map((particle, i) => (
             <div
               key={i}
@@ -224,6 +225,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                 top: particle.top,
                 animationDelay: particle.delay,
               }}
+              aria-hidden="true"
             />
           ))}
         </div>
@@ -237,10 +239,13 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
           className="text-center mb-12 md:mb-20"
         >
           <Badge className="bg-black/70 px-5 py-2 md:px-7 md:py-3 text-base md:text-xl border border-purple-500/50 text-purple-300 mb-5 md:mb-8 hover:bg-purple-900/30 transition-colors">
-            <Phone className="w-5 h-5 md:w-6 md:h-6 ml-2 text-yellow-400 animate-pulse" />
+            <Phone className="w-5 h-5 md:w-6 md:h-6 ml-2 text-yellow-400 animate-pulse" aria-hidden="true" />
             تواصل معنا
           </Badge>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-5 md:mb-8 text-white">
+          <h2
+            id="contact-title"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-5 md:mb-8 text-white"
+          >
             <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
               تواصل مع فريقنا
             </span>
@@ -369,95 +374,141 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                 <form
                   onSubmit={handleSubmit}
                   className="space-y-4 md:space-y-6"
+                  aria-labelledby="booking-form-title"
+                  noValidate
                 >
+                  <h4 id="booking-form-title" className="sr-only">نموذج حجز النايت كلوب</h4>
+
                   <div className="space-y-1 md:space-y-2">
-                    <label className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium">
-                      الاسم بالكامل
+                    <label
+                      htmlFor="booking-name"
+                      className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium"
+                    >
+                      الاسم بالكامل <span className="text-red-400" aria-label="مطلوب">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <User className="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
+                        <User className="w-4 h-4 md:w-5 md:h-5 text-gray-400" aria-hidden="true" />
                       </div>
                       <input
                         type="text"
+                        id="booking-name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        aria-required="true"
+                        aria-describedby="name-error"
                         className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 md:px-4 md:py-3 pl-10 md:pl-12 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/30"
+                        placeholder="أدخل اسمك الكامل"
+                        autoComplete="name"
                       />
+                      <div id="name-error" className="sr-only" role="alert" aria-live="polite"></div>
                     </div>
                   </div>
 
                   <div className="space-y-1 md:space-y-2">
-                    <label className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium">
-                      رقم الهاتف
+                    <label
+                      htmlFor="booking-phone"
+                      className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium"
+                    >
+                      رقم الهاتف <span className="text-red-400" aria-label="مطلوب">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <Phone className="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
+                        <Phone className="w-4 h-4 md:w-5 md:h-5 text-gray-400" aria-hidden="true" />
                       </div>
                       <input
                         type="tel"
+                        id="booking-phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
                         required
+                        aria-required="true"
+                        aria-describedby="phone-error"
                         className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 md:px-4 md:py-3 pl-10 md:pl-12 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/30"
-                        placeholder="رقم الهاتف"
+                        placeholder="مثال: 01234567890"
+                        autoComplete="tel"
                       />
+                      <div id="phone-error" className="sr-only" role="alert" aria-live="polite"></div>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 gap-3 md:gap-6">
                     <div className="space-y-1 md:space-y-2">
-                      <label className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium">
-                        التاريخ
+                      <label
+                        htmlFor="booking-date"
+                        className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium"
+                      >
+                        التاريخ <span className="text-red-400" aria-label="مطلوب">*</span>
                       </label>
                       <div className="relative">
+                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                          <Calendar className="w-4 h-4 md:w-5 md:h-5 text-gray-400" aria-hidden="true" />
+                        </div>
                         <input
                           type="date"
+                          id="booking-date"
                           name="date"
                           value={formData.date}
                           onChange={handleChange}
                           required
+                          aria-required="true"
+                          aria-describedby="date-error"
                           className="date-input w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 md:px-4 md:py-3 pl-10 md:pl-12 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/30"
+                          min={new Date().toISOString().split('T')[0]}
                         />
+                        <div id="date-error" className="sr-only" role="alert" aria-live="polite"></div>
                       </div>
                     </div>
-
                   </div>
 
                   <div className="grid md:grid-cols-1 gap-3 md:gap-6">
                     <div className="space-y-1 md:space-y-2">
-                      <label className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium">
-                        عدد الأشخاص
+                      <label
+                        htmlFor="booking-guests"
+                        className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium"
+                      >
+                        عدد الأشخاص <span className="text-red-400" aria-label="مطلوب">*</span>
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                          <Users className="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
+                          <Users className="w-4 h-4 md:w-5 md:h-5 text-gray-400" aria-hidden="true" />
                         </div>
                         <select
+                          id="booking-guests"
                           name="guests"
                           value={formData.guests}
                           onChange={handleChange}
+                          required
+                          aria-required="true"
+                          aria-describedby="guests-help"
                           className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 md:px-4 md:py-3 pl-10 md:pl-12 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/30 appearance-none"
                         >
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                             <option key={num} value={num}>
-                              {num} أشخاص
+                              {num} {num === 1 ? 'شخص' : 'أشخاص'}
                             </option>
                           ))}
                         </select>
+                        <div id="guests-help" className="text-xs text-gray-400 mt-1">
+                          اختر عدد الأشخاص للحجز
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-1 md:space-y-2">
-                    <label className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium">
-                      نوع الباقة
-                    </label>
-                    <div className="grid grid-cols-2 gap-2 md:gap-4">
+                  <fieldset className="space-y-1 md:space-y-2">
+                    <legend className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium">
+                      نوع الباقة <span className="text-red-400" aria-label="مطلوب">*</span>
+                    </legend>
+                    <div
+                      className="grid grid-cols-2 gap-2 md:gap-4"
+                      role="radiogroup"
+                      aria-required="true"
+                      aria-labelledby="package-legend"
+                    >
                       {Object.entries(packages).map(([id, pkg]) => (
                         <motion.div
                           key={id}
@@ -466,16 +517,17 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                         >
                           <input
                             type="radio"
-                            id={id}
+                            id={`package-${id}`}
                             name="package"
                             value={id}
                             checked={formData.package === id}
                             onChange={handleChange}
                             className="hidden peer"
+                            aria-describedby={`package-${id}-description`}
                           />
                           <label
-                            htmlFor={id}
-                            className={`block p-3 md:p-4 border rounded-lg cursor-pointer transition-all ${
+                            htmlFor={`package-${id}`}
+                            className={`block p-3 md:p-4 border rounded-lg cursor-pointer transition-all focus-within:ring-2 focus-within:ring-yellow-400 focus-within:ring-offset-2 focus-within:ring-offset-black ${
                               formData.package === id
                                 ? "border-yellow-400 bg-yellow-400/10"
                                 : "border-gray-600 hover:border-yellow-400/50"
@@ -483,16 +535,19 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                           >
                             <div className="flex items-center gap-2 md:gap-3">
                               {id === "vip" ? (
-                                <Crown className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
+                                <Crown className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" aria-hidden="true" />
                               ) : (
-                                <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-purple-400" />
+                                <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-purple-400" aria-hidden="true" />
                               )}
                               <div>
                                 <p className="text-sm md:text-base font-medium text-white">
                                   {pkg.name}
                                 </p>
-                                <p className="text-xs md:text-sm text-gray-300">
-                                  {pkg.price} ج/للشخص
+                                <p
+                                  id={`package-${id}-description`}
+                                  className="text-xs md:text-sm text-gray-300"
+                                >
+                                  {pkg.price} جنيه للشخص الواحد
                                 </p>
                               </div>
                             </div>
@@ -500,43 +555,71 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                         </motion.div>
                       ))}
                     </div>
-                  </div>
+                  </fieldset>
 
                   <div className="space-y-1 md:space-y-2">
-                    <label className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium">
-                      كود الخصم
+                    <label
+                      htmlFor="discount-code"
+                      className="block text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium"
+                    >
+                      كود الخصم (اختياري)
                     </label>
                     <div className="flex gap-2 md:gap-3">
                       <input
                         type="text"
+                        id="discount-code"
                         value={discountCode}
                         onChange={(e) => setDiscountCode(e.target.value)}
                         className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 md:px-4 md:py-3 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/30"
-                        placeholder="كود الخصم (اختياري)"
+                        placeholder="مثال: VIP10 أو NIGHT15"
+                        aria-describedby="discount-help"
+                        autoComplete="off"
                       />
                       <button
                         type="button"
                         onClick={checkDiscountCode}
-                        className="bg-purple-600 hover:bg-purple-700 text-white px-4 md:px-6 rounded-lg transition-colors text-sm md:text-base"
+                        className="bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black text-white px-4 md:px-6 rounded-lg transition-colors text-sm md:text-base"
+                        aria-describedby="discount-status"
                       >
                         تطبيق
                       </button>
                     </div>
+                    <div id="discount-help" className="text-xs text-gray-400">
+                      أدخل كود الخصم إن وجد للحصول على تخفيض
+                    </div>
+                    {isValidCode && (
+                      <div id="discount-status" className="text-xs text-green-400" role="status" aria-live="polite">
+                        ✅ تم تطبيق خصم {appliedDiscount * 100}% بنجاح
+                      </div>
+                    )}
+                    {discountCode && !isValidCode && (
+                      <div id="discount-status" className="text-xs text-red-400" role="alert" aria-live="polite">
+                        ❌ كود الخصم غير صحيح
+                      </div>
+                    )}
                   </div>
 
                   <div className="space-y-1 md:space-y-2">
-                    <label className="flex text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium items-center gap-1">
+                    <label
+                      htmlFor="booking-notes"
+                      className="flex text-gray-300 mb-1 md:mb-2 text-xs sm:text-sm font-medium items-center gap-1"
+                    >
                       ملاحظات إضافية (اختياري)
-                      <Info className="w-3 h-3 md:w-4 md:h-4 text-gray-400" />
+                      <Info className="w-3 h-3 md:w-4 md:h-4 text-gray-400" aria-hidden="true" />
                     </label>
                     <textarea
+                      id="booking-notes"
                       name="notes"
                       value={formData.notes}
                       onChange={handleChange}
                       rows={3}
                       className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 md:px-4 md:py-3 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/30"
                       placeholder="أي طلبات أو ملاحظات خاصة..."
+                      aria-describedby="notes-help"
                     />
+                    <div id="notes-help" className="text-xs text-gray-400">
+                      اكتب أي طلبات خاصة أو ملاحظات إضافية
+                    </div>
                   </div>
 
                   <motion.div

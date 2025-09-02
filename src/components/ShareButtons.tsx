@@ -165,7 +165,7 @@ const ShareButtons = ({
                 <TwitterShareButton
                   url={shareData.url}
                   title={shareData.title}
-                  hashtags={["نايت_كلوب", "ديسكو", "كاباريه", "القاهرة"]}
+                  hashtags={["نايت_كلوب", "ديسكو", "كباريه", "القاهرة"]}
                   className="focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black rounded-lg transition-all duration-200 hover:scale-110"
                   aria-label="مشاركة على تويتر"
                   role="menuitem"
