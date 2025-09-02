@@ -63,7 +63,7 @@ export default function Footer() {
               className="footer-item text-white text-sm text-center md:text-left transition-colors hover:text-yellow-400"
               whileHover={{ x: 5 }}
             >
-              أفضل تجربة حفلات في القاهرة
+              افضل سهرات خليحي مع افضل الحفلات في مصر
             </motion.p>
             <motion.div
               className="footer-item flex gap-4 md:gap-5"
@@ -101,10 +101,10 @@ export default function Footer() {
               <motion.a
                 className="footer-item flex items-center gap-2 text-white transition-colors hover:text-yellow-400"
                 whileHover={{ x: -5 }}
-                href="tel:+20123456789"
+                href="tel:+201286110562"
               >
                 <Phone className="w-4 h-4" />
-                <span>+20 128 611 0562</span>
+                <span>+201286110562</span>
               </motion.a>
               <motion.a
                 className="footer-item flex items-center gap-2 text-white transition-colors hover:text-yellow-400"
@@ -130,13 +130,13 @@ export default function Footer() {
                 className="footer-item text-white transition-colors hover:text-yellow-400"
                 whileHover={{ x: 5 }}
               >
-                الأحد - الخميس: 10PM - 4AM
+                9PM - 4AM
               </motion.p>
               <motion.p
                 className="footer-item text-white transition-colors hover:text-yellow-400"
                 whileHover={{ x: 5 }}
               >
-                الجمعة - السبت: 11PM - 6AM
+                الجمعة - السبت: 9PM - 6AM
               </motion.p>
               <motion.p
                 className="footer-item text-yellow-400/80 transition-colors hover:text-yellow-400"

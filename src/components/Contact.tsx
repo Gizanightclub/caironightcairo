@@ -165,7 +165,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       name: "Facebook",
       icon: Facebook,
-      url: "https://www.facebook.com/share/15gfvwAhXx",
+      url: "https://www.facebook.com/profile.php?id=100076355247481",
       color: "bg-blue-600 hover:bg-blue-700",
     },
     {
@@ -181,7 +181,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
-      description: "01286110562",
+      description: "01286110562-01055599706",
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },
@@ -336,10 +336,10 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                     <div className="text-center p-4 sm:p-5 md:p-6 backdrop-blur-sm bg-black/30 rounded-xl border border-white/10">
                       <MapPin className="w-8 h-8 md:w-10 md:h-10 mx-auto text-yellow-400 mb-2 md:mb-3" />
                       <p className="text-white text-sm sm:text-base md:text-lg font-medium">
-                        نايل كورنيش، أجوزا، شارع النيل
+                        نايل كورنيش، العجوزه، شارع النيل
                       </p>
                       <p className="text-gray-300 text-xs sm:text-sm md:text-base mt-1">
-                        القاهرة، مصر
+                        القاهرة، مصر , الجيزة
                       </p>
                     </div>
                   </div>

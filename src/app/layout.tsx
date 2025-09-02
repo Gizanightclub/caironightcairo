@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cairo, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
@@ -8,87 +8,154 @@ const cairo = Cairo({
   subsets: ["arabic", "latin"],
   variable: "--font-cairo",
   display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
 });
 
+// تحسين Viewport للجوال والأجهزة اللوحية
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fbbf24' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' }
+  ],
+  colorScheme: 'dark light',
+}
+
+// تحسين metadata شامل لـ SEO
 export const metadata: Metadata = {
-  title: "Night Club نايت كلوب ديسكو",
-  description:
-    "نايت كلوب VIP في القاهرة - حفلات، عروض حية، نجوم، ترفيه، حجز طاولات، أفضل سهرة ليلية في مصر. استمتع بأجواء فاخرة وخدمة VIP.",
- keywords: [
-    // الكلمات المفتاحية الأساسية المحدثة 2025 مع AI-powered keywords
-    "نايت كلوب مصر 2025", "أفضل نايت كلوب في مصر", "ملهى ليلي VIP", "نادي ليلي فاخر", "Night Club Egypt", "احجز نايت كلوب", "حفلات ليلية فاخرة", "سهرات مميزة مصر",
-    // المدن والمناطق المصرية - تحسين محلي Local SEO
-    "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب العجوزه", "نايت كلوب الشيخ زايد", "نايت كلوب الهرم",
-    "نايت كلوب التجمع الخامس", "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك", "نايت كلوب المهندسين",
-    "نايت كلوب مدينة نصر", "نايت كلوب هليوبوليس", "نايت كلوب مصر الجديدة", "نايت كلوب القاهرة الجديدة", "نايت كلوب الدقي",
-    "نايت كلوب جاردن سيتي", "نايت كلوب وسط البلد", "نايت كلوب كورنيش النيل", "نايت كلوب النيل",
-    // كلمات بحث عربية تفصيلية Long-tail Arabic SEO
-    "افضل نايت كلوب في القاهرة", "احسن نايت كلوب في مصر", "اشهر نايت كلوب", "اجمل نايت كلوب", "ارقى نايت كلوب",
-    "نايت كلوب راقي مصر", "نايت كلوب فخم", "نايت كلوب حديث", "نايت كلوب مودرن", "نايت كلوب عصري",
-    "حجز نايت كلوب مصر", "اسعار نايت كلوب", "عروض نايت كلوب", "باقات نايت كلوب", "خصومات نايت كلوب",
-    // English keywords for tourists and international visitors
-    "nightclub Cairo 2025", "best nightclub Egypt", "luxury nightclub Cairo", "VIP nightclub Egypt", "Cairo nightlife",
-    "nightclub Giza", "nightclub Agouza", "nightclub Sheikh Zayed", "nightclub 6th October", "nightclub New Cairo",
-    "nightclub Maadi", "nightclub Zamalek", "nightclub Mohandessin", "nightclub Heliopolis", "nightclub Nasr City",
-    "Egypt nightclub VIP", "Cairo night entertainment", "Egypt nightlife scene", "premium nightclub Egypt",
-    "exclusive nightclub Cairo", "upscale nightclub Egypt", "trendy nightclub Cairo", "modern nightclub Egypt",
-    // خدمات ومناسبات وفعاليات Trending Event Keywords
-    "حفلات ليلية مصر", "سهرات القاهرة", "ترفيه ليلي VIP", "حفلات خاصة", "مناسبات خاصة", "حفلات اعياد ميلاد",
-    "فعاليات شركات", "حفلات زفاف", "احتفالات مصر", "مؤتمرات وفعاليات", "ترفيه شركات",
-    "DJ nights Egypt", "live music Cairo", "party nights Egypt", "dance floor Cairo", "nightclub booking Egypt",
-    "birthday parties Egypt", "corporate events Cairo", "wedding celebrations", "bachelor parties", "anniversary celebrations",
-    // اتجاهات وتقنيات 2025 Trending & Tech Keywords
-    "نايت كلوب تكنولوجي", "LED nightclub Egypt", "smart nightclub", "digital entertainment Egypt", "interactive nightlife",
-    "نايت كلوب بتقنيات حديثة", "هولوجرام نايت كلوب", "نايت كلوب ثلاثي الأبعاد", "VR nightclub Egypt",
-    "اضاءة ليد نايت كلوب", "صوتيات عالية الجودة", "نظام صوت متطور", "اضاءة ذكية",
-    // السياحة والترفيه Tourism & Entertainment
-    "السياحة الليلية مصر", "اماكن ترفيه ليلي", "كورنيش النيل ترفيه", "سياحة ترفيهية القاهرة",
-    "Egypt tourist nightlife", "Cairo tourist attractions", "Egypt entertainment tourism", "Nile entertainment",
-    "tourist nightclub Egypt", "visitor nightlife Cairo", "Egypt holiday nightlife", "Cairo vacation entertainment",
-    // موسمية وتخصصية Seasonal & Specialized
-    "نايت كلوب رأس السنة", "حفلات عيد الحب", "نايت كلوب رمضان", "حفلات العيد", "نايت كلوب الصيف",
-    "new year nightclub Egypt", "valentine's day party", "summer nights Egypt", "weekend parties Cairo",
-    "ladies night Egypt", "couples night Cairo", "group bookings nightclub", "VIP table booking",
-    // Social Media & Digital Presence
-    "نايت كلوب انستقرام", "نايت كلوب تيك توك", "نايت كلوب فيسبوك", "night club social media",
-    "viral nightclub Egypt", "Instagram worthy nightclub", "TikTok famous nightclub", "social nightclub Cairo"
+  // العناوين الأساسية
+  title: {
+    default: "أفضل نايت كلوب في مصر - احجز الآن بخصومات 25% | Night Club Egypt",
+    template: "%s | أفضل نايت كلوب في مصر"
+  },
+  description: "احجز في أفضل نايت كلوب في مصر بأرخص الأسعار! سهرات خليجية فاخرة، موسيقى حية، طاولات VIP، وخصومات تصل إلى 25%. اتصل الآن: 01286110562",
+
+  // الكلمات المفتاحية المحسنة
+  keywords: [
+    // الكلمات المفتاحية الأساسية المحدثة 2025
+    "نايت كلوب مصر", "أفضل نايت كلوب في مصر", "ملهى ليلي", "اسعار نايت كلوب", "Night Club", "نايت كلوب", "ارخص نايت كلوب", "سهرات خليجي", "نايت", "ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه",
+
+    // المدن والمناطق المصرية - تحسين محلي
+    "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب العجوزه", "نايت كلوب الشيخ زايد", "نايت كلوب الهرم", "نايت كلوب التجمع الخامس", "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك", "نايت كلوب المهندسين", "نايت كلوب مدينة نصر", "نايت كلوب مصر الجديدة", "نايت كلوب القاهرة الجديدة", "نايت كلوب الدقي",
+
+    // كلمات بحث عربية تفصيلية
+    "افضل نايت كلوب في القاهرة", "ارخص نايت كلوب في مصر", "اشهر نايت كلوب", "اجمل نايت كلوب", "ارقى نايت كلوب", "نايت كلوب راقي مصر", "نايت كلوب فخم", "نايت كلوب حديث", "نايت كلوب عصري", "حجز نايت كلوب", "اسعار نايت كلوب", "عروض نايت كلوب", "باقات نايت كلوب", "خصومات نايت كلوب",
+
+    // English keywords for international visitors
+    "nightclub Cairo 2025", "best nightclub Egypt", "nightclub Cairo", "VIP nightclub Egypt", "Cairo nightlife", "nightclub Giza", "Egypt nightclub VIP", "Cairo night entertainment", "premium nightclub Egypt", "exclusive nightclub Cairo", "upscale nightclub Egypt",
+
+    // خدمات ومناسبات وفعاليات
+    "حفلات ليلية مصر", "سهرات القاهرة", "ترفيه ليلي VIP", "حفلات خاصة", "مناسبات خاصة", "حفلات رقص", "DJ nights Egypt", "live music Cairo", "party nights Egypt", "VIP tables Egypt", "nightclub booking Egypt",
+
+    // Social Media Presence
+    "نايت كلوب انستقرام", "نايت كلوب تيك توك", "نايت كلوب فيسبوك", "viral nightclub Egypt", "Instagram worthy nightclub"
   ].join(", "),
+
+  // معلومات المؤلف والناشر
+  authors: [
+    { name: "Night Club Egypt", url: "https://nightclubcairo.vercel.app" }
+  ],
+  creator: "Night Club Egypt",
+  publisher: "Night Club Egypt",
+
+  // إعدادات الفهرسة
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
-  authors: [{ name: "Night Club VIP" }],
+
+  // Open Graph للفيسبوك وتويتر
   openGraph: {
     type: "website",
+    locale: "ar_EG",
     url: "https://nightclubcairo.vercel.app/",
-    title: "فضل نايت كلوب في القاهرة",
-    description:
-      "🔥 أفضل نايت كلوب في مصر لعام 2025 | احجز الآن في Night Club Egypt واستمتع بحفلات ليلية فاخرة وخدمة VIP استثنائية في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين، مدينة نصر، هليوبوليس. عروض حية، موسيقى عالمية، سهرات لا تُنسى، أجواء رائعة مع أفضل DJs. نقدم خدمات حفلات أعياد الميلاد، المناسبات الخاصة، الفعاليات الشركات. أفضل ترفيه ليلي في مصر! 📞 اتصل الآن: 01286110562",
+    siteName: "أفضل نايت كلوب في مصر",
+    title: "أفضل نايت كلوب في مصر - احجز الآن بخصومات 25%",
+    description: "استمتع بأفضل السهرات الخليجية في أجواء فاخرة مع موسيقى حية وخدمة VIP متميزة. احجز الآن واحصل على خصومات تصل إلى 25%",
     images: [
       {
-        url: "https://nightclubcairo.vercel.app/images/nightclub4.jpeg",
+        url: "https://nightclubcairo.vercel.app/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Night Club VIP Cairo",
+        alt: "أفضل نايت كلوب في مصر - سهرات خليجية فاخرة",
+        type: "image/jpeg",
       },
+      {
+        url: "https://nightclubcairo.vercel.app/logo.png",
+        width: 512,
+        height: 512,
+        alt: "لوجو نايت كلوب مصر",
+        type: "image/png",
+      }
     ],
   },
+
+  // Twitter Cards
   twitter: {
     card: "summary_large_image",
-    title: "Night Club نايت كلوب  ",
-    description:
-      "استمتع بأفضل سهرة ليلية في القاهرة مع حفلات مميزة وخدمة VIP فاخرة.",
-    images: ["https://nightclubcairo.vercel.app/images/nightclub3.jpeg"],
+    site: "@nightclub_egypt",
+    creator: "@nightclub_egypt",
+    title: "أفضل نايت كلوب في مصر - احجز الآن",
+    description: "استمتع بأفضل السهرات الخليجية والموسيقى الحية في أجواء فاخرة. احجز الآن: 01286110562",
+    images: {
+      url: "https://nightclubcairo.vercel.app/images/twitter-image.jpg",
+      alt: "أفضل نايت كلوب في مصر - سهرات خليجية",
+    },
   },
+
+  // معلومات إضافية للفهرسة
+  category: "Entertainment",
+  classification: "Nightclub, Entertainment, VIP Services",
+
+  // روابط بديلة وcanonical
   alternates: {
     canonical: "https://nightclubcairo.vercel.app/",
+    languages: {
+      'ar': 'https://nightclubcairo.vercel.app/',
+      'en': 'https://nightclubcairo.vercel.app/en',
+    },
   },
+
+  // معلومات التطبيق
+  applicationName: "Night Club Egypt",
+  generator: "Next.js 15",
+  referrer: "origin-when-cross-origin",
+
+  // إعدادات إضافية للأمان والأداء
+  other: {
+    'google-site-verification': 'vIFvNXtiEElV5o0_lQyVrK50RaetndJXR4Vu4Qc2ohc',
+    'msvalidate.01': 'your-bing-verification-code',
+    'yandex-verification': 'your-yandex-verification-code',
+    'fb:app_id': 'your-facebook-app-id',
+  },
+
+  // App Links للتطبيقات
+  appLinks: {
+    web: {
+      url: 'https://nightclubcairo.vercel.app',
+      should_fallback: true,
+    },
+  },
+
+  // معلومات الاتصال
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -99,116 +166,235 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="scroll-smooth">
       <head>
-       <meta name="google-site-verification" content="vIFvNXtiEElV5o0_lQyVrK50RaetndJXR4Vu4Qc2ohc" />
-        {/* Favicon محسن لجميع الأجهزة والمتصفحات */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-
-        {/* Preload critical resources لتحسين LCP وتقليل blocking */}
-        <link rel="preload" href="images/496297633_122132908394643264_7862667949279596569_n.jpg" as="image" type="image/jpeg" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* Critical Resource Hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://wa.me" />
+        <link rel="dns-prefetch" href="https://www.facebook.com" />
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
 
-        {/* Organization Logo JSON-LD for Google Search */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={({
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              url: "https://nightclubcairo.vercel.app/",
-              logo: "https://nightclubcairo.vercel.app/images/nightclub3.jpeg",
-            }),
-          })}
+        {/* Favicons - محسن لجميع الأجهزة */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fbbf24" />
+
+        {/* Web App Manifest */}
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* Preload Critical Resources */}
+        <link
+          rel="preload"
+          href="/logo.png"
+          as="image"
+          type="image/png"
+        />
+        <link
+          rel="preload"
+          href="/images/nightclub-hero.jpg"
+          as="image"
+          type="image/jpeg"
         />
 
-        {/* Critical CSS inline لتحسين FCP */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            body { font-family: var(--font-cairo), Arial, sans-serif; }
-            .nightclub-loader {
-              position: fixed; top: 50%; left: 50%;
-              transform: translate(-50%, -50%);
-              z-index: 9999;
-            }
-          `
-        }} />
-        <meta name="google-site-verification" content="iQTmra5rFv7fTzqzW7WXxsZroa6EKbzjAqw_FJA0rp4" />
+        {/* Critical CSS للتحسين */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              body {
+                font-family: var(--font-cairo), Arial, sans-serif;
+                background-color: #000;
+                color: #fff;
+              }
+              .loading-screen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+              }
+              .sr-only:focus {
+                position: static;
+                width: auto;
+                height: auto;
+                padding: 0.5rem 1rem;
+                margin: 0;
+                overflow: visible;
+                clip: auto;
+                white-space: normal;
+              }
+            `
+          }}
+        />
       </head>
+
       <body
         className={`${cairo.variable} ${inter.variable} font-cairo antialiased bg-black text-white overflow-x-hidden`}
       >
-        {children}
-        <Toaster />
+        {/* Skip Links للـ Accessibility */}
+        <div className="sr-only">
+          <a href="#main-content" className="skip-link">
+            الانتقال إلى المحتوى الرئيسي
+          </a>
+          <a href="#navigation" className="skip-link">
+            الانتقال إلى القائمة الرئيسية
+          </a>
+        </div>
 
-        {/* 🔥 JSON-LD Schema */}
+        {children}
+
+        {/* Toast Notifications */}
+        <Toaster
+          position="top-center"
+          richColors
+          closeButton
+          duration={5000}
+        />
+
+        {/* Google Analytics 4 */}
         <Script
-          id="ld-json"
+          src="https://www.googletagmanager.com/gtag/js?id=G-70LH6MQ3QN"
+          strategy="afterInteractive"
+          async
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-70LH6MQ3QN', {
+                page_title: document.title,
+                page_location: window.location.href,
+                anonymize_ip: true,
+                allow_google_signals: false,
+                allow_ad_personalization_signals: false
+              });
+            `
+          }}
+        />
+
+        {/* Facebook Pixel */}
+        <Script
+          id="facebook-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+              fbq('track', 'PageView');
+            `
+          }}
+        />
+
+        {/* JSON-LD Organization Schema */}
+        <Script
+          id="organization-schema"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "NightClub",
-              name: "Night Club VIP",
-              image: "https://nightclubcairo.vercel.app/logo.png",
-              "@id": "https://nightclubcairo.vercel.app/",
-              url: "https://nightclubcairo.vercel.app/",
-              telephone: "+201012345678",
-              priceRange: "$$$",
-              address: {
+              "@type": "Organization",
+              "@id": "https://nightclubcairo.vercel.app/#organization",
+              "name": "Night Club Egypt",
+              "url": "https://nightclubcairo.vercel.app/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://nightclubcairo.vercel.app/logo.png",
+                "width": 512,
+                "height": 512
+              },
+              "image": "https://nightclubcairo.vercel.app/logo.png",
+              "description": "أفضل نايت كلوب في مصر يقدم سهرات خليجية فاخرة وخدمات VIP متميزة",
+              "telephone": "+201286110562",
+              "address": {
                 "@type": "PostalAddress",
-                streetAddress: "نايل كورنيش، العجوزه شارع النيل",
-                addressLocality: "القاهرة",
-                addressRegion: "القاهرة",
-                postalCode: "11511",
-                addressCountry: "EG",
+                "streetAddress": "كورنيش النيل، العجوزة",
+                "addressLocality": "الجيزة",
+                "addressRegion": "القاهرة الكبرى",
+                "postalCode": "11511",
+                "addressCountry": "EG"
               },
-              geo: {
+              "geo": {
                 "@type": "GeoCoordinates",
-                latitude: 30.0666,
-                longitude: 31.2240,
+                "latitude": 30.0666,
+                "longitude": 31.2240
               },
-              openingHoursSpecification: [
+              "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday",
-                  ],
-                  opens: "20:00",
-                  closes: "04:00",
-                },
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                  "opens": "20:00",
+                  "closes": "04:00"
+                }
               ],
-              sameAs: [
-            "https://www.facebook.com/profile.php?id=61560900837183",
-            "https://www.instagram.com/night_club_5star",
-            "https://www.tiktok.com/@night.club993?_t=ZS-8yvVCVK9A5R&_r=1",
-            "https://wa.me/201286110562?countryCode=20&countryName=EG&phoneNumber=1286110562",
-            "https://maps.app.goo.gl/E5R8oXS1WQfgZ5W66",
-            "https://www.nightclubegypt.com"
-
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=100076355247481",
+                "https://www.instagram.com/night_club_5star",
+                "https://www.tiktok.com/@night.club993",
+                "https://wa.me/201286110562"
               ],
-            }),
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+201286110562",
+                "contactType": "customer service",
+                "areaServed": "EG",
+                "availableLanguage": ["Arabic", "English"]
+              }
+            })
           }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-70LH6MQ3QN"></script>
+
+        {/* Service Worker Registration */}
+        <Script
+          id="service-worker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `
+          }}
+        />
       </body>
-      
     </html>
   );
 }

@@ -1,0 +1,71 @@
+# Robots.txt for Night Club Egypt - أفضل نايت كلوب في مصر
+# https://nightclub-egypt.vercel.app/
+
+# السماح لجميع محركات البحث بفهرسة الموقع
+User-agent: *
+Allow: /
+
+# السماح الخاص لمحرك بحث جوجل
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# السماح لمحرك بحث بينج
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# السماح لمحرك بحث ياهو
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# السماح لمحرك بحث دك دك جو
+User-agent: DuckDuckBot
+Allow: /
+
+# السماح لمحرك بحث يانديكس
+User-agent: YandexBot
+Allow: /
+
+# منع فهرسة الملفات الإدارية والخاصة
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /sitemap_index.xml
+
+# السماح بفهرسة الصور والفيديوهات المهمة
+Allow: /logo.png
+Allow: /favicon.ico
+Allow: /og-image.jpg
+Allow: /twitter-image.jpg
+Allow: /videos/
+Allow: /images/
+
+# منع روبوتات سيئة ومتطفلة
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# مواقع الخرائط والملفات المهمة
+Sitemap: https://nightclub-egypt.vercel.app/sitemap.xml
+Sitemap: https://nightclub-egypt.vercel.app/sitemap-images.xml
+Sitemap: https://nightclub-egypt.vercel.app/sitemap-videos.xml
+
+# معلومات الاتصال للمطورين
+# Contact: info@nightclub-egypt.com
+# Website: https://nightclub-egypt.vercel.app/
+# Phone: +201286110562

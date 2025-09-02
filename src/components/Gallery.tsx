@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Music, Calendar, Sparkles } from "lucide-react";
 import Image from "next/image";
-import VideoSection from "./VideoSection";
 
 const Gallery = () => {
   const [currentProgram, setCurrentProgram] = useState(0);
@@ -109,13 +108,6 @@ const Gallery = () => {
       
             <span className="block text-yellow-400 text-2xl md:text-4xl mt-2">الفعاليات والحفلات</span>
           </h2>
-          {/* ====== VIDEO PLACEHOLDER START ====== */}
-        <VideoSection
-          videoUrl="/videos/nightlife.ayla_14040504_120851963.mp4"
-          posterUrl="/images/nightclubegypt.com.jpg"
-        />
-        {/* ====== VIDEO PLACEHOLDER END ====== */}
-
         </motion.div>
 
          
