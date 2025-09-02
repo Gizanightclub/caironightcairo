@@ -35,15 +35,15 @@ const defaultVideos: VideoData[] = [
   {
     id: "1",
     src: "/videos/nightclub-promo.mp4",
-    poster: "images/نايت كلوب العجزه.jpg",
+    poster: "images/nightclub1.jpeg",
     title: "سهرة خليجي مميزة",
-    description: "استمتع بأفضل السهرات الخليجية في أجواء راقية",
+    description: "استمتع بأفضل السهرات الخليجية  ",
     duration: "2:30"
   },
   {
     id: "2",
-    src: "/videos/nightlife.ayla_14040504_120851963.mp4",
-    poster: "images/nightclub0.jpeg",
+    src: "/videos/nightlife.mp4",
+    poster: "images/nightclubegypt.com2.jpg",
     title: "أجواء النايت كلوب",
     description: "اكتشف الأجواء الفاخرة والترفيه المميز",
     duration: "1:45"
@@ -307,7 +307,7 @@ const VideoCarousel = ({
                       <Button
                         onClick={() => togglePlayPause(video.id)}
                         size="lg"
-                        className="w-16 h-16 rounded-full bg-yellow-400/90 hover:bg-yellow-400 text-black hover:scale-110 transition-all duration-300"
+                        className="w-16 h-16 rounded-full bg-yellow-400/90 hover:bg-yellow-00 text-black hover:scale-110 transition-all duration-300"
                         aria-label={activeVideo === video.id ? "إيقاف الفيديو" : "تشغيل الفيديو"}
                       >
                         {activeVideo === video.id ? (
@@ -358,13 +358,13 @@ const VideoCarousel = ({
                   {/* معلومات الفيديو */}
                   <div className="absolute bottom-4 right-4 text-right max-w-md">
                     <h3
-                      className="text-xl font-bold text-yellow-400 mb-1 drop-shadow-lg"
+                      className="text-xl font-bold text-yellow-300 mb-1 drop-shadow-lg"
                       id={`video-title-${video.id}`}
                     >
                       {video.title}
                     </h3>
                     <p
-                      className="text-gray-200 text-sm drop-shadow-lg"
+                      className="text-gray-100 text-sm drop-shadow-lg"
                       id={`video-description-${video.id}`}
                     >
                       {video.description}
@@ -377,7 +377,7 @@ const VideoCarousel = ({
 
           {/* أزرار التنقل المخصصة - معطلة أثناء تشغيل الفيديو */}
           <button
-            className={`swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center text-black transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black ${
+            className={`swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center text-black transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-00 focus:ring-offset-2 focus:ring-offset-black ${
               isVideoPlaying
                 ? 'bg-gray-400/50 cursor-not-allowed opacity-50'
                 : 'bg-yellow-400/90 hover:bg-yellow-400 cursor-pointer'
@@ -442,7 +442,7 @@ const VideoCarousel = ({
         .swiper-pagination-bullet-custom {
           width: 12px !important;
           height: 12px !important;
-          background: rgba(221, 226, 235, 0.5) !important;
+          background: rgba(229, 229, 230, 0.5) !important;
           opacity: 1 !important;
           transition: all 0.3s ease !important;
         }

@@ -153,7 +153,7 @@ const Navigation = () => {
               aria-label="العودة إلى الصفحة الرئيسية - أفضل نايت كلوب في مصر"
             >
               {/* لوجو داخل دائرة متجاوبة */}
-              <div className="relative lg:left-0 left-8 w-12 h-12 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full border-2 border-fuchsia-500 bg-white/10 p-1 shadow-lg">
+              <div className="relative lg:left-0 left-110 w-12 h-12 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full border-2 border-fuchsia-500 bg-white/10 p-1 shadow-lg">
                 <Image
                   src="/logo.png"
                   alt="لوجو أفضل نايت كلوب في مصر - أرخص كاباريه ديسكو بار"

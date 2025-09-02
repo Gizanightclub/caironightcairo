@@ -199,7 +199,7 @@ export default function Home() {
                   "name": "Night Club Egypt",
                   "image": [
                     "https://nightclubcairo.vercel.app/logo.png",
-                    "https://nightclubcairo.vercel.app/images/nightclub-hero.jpg"
+                    "https://nightclubcairo.vercel.app/images/nightclub0.jpeg"
                   ],
                   "description": "أفضل نايت كلوب في مصر يقدم أجواء فاخرة وموسيقى حية مع خدمات VIP متميزة",
                   "url": "https://nightclubcairo.vercel.app/",

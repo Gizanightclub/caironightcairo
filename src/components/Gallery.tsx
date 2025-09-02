@@ -29,26 +29,24 @@ const Gallery = () => {
 
   // بيانات البرامج اليومية
   const dailyPrograms = [
-    "images/nightclubegypt.com (2).jpg",
-    "images/nightclubegypt.com (6).jpg",
-    "images/nightclubegypt.com (9).jpg",
-    "images/nightclubegypt.com (15).jpg",
+    "images/nightclubegypt.com2.jpg",
+    "images/nightclubegypt.com6.jpg",
+    "images/nightclubegypt.com9.jpg",
+    "images/nightclubegypt.com15.jpg",
     "images/nightclubegypt.com.jpg",
   ];
 
   // بيانات الحفلات السابقة
   const pastEvents = [
-    "images/نايت كلوب العجزه.jpg",
     "images/nightclub1.jpeg",
     "images/nightclub0.jpeg",
     "images/nightclub3.jpeg",
     "images/nightclub4.jpeg",
     "images/nightclub5.jpeg",
-    "images/nightclub6.jpeg",
     "images/nightclub7.jpeg",
     "images/nightclub8.jpeg",
     "images/nightclub9.jpeg",
-    "images/نايت كلوب العجزه3.jpg",
+    "images/mmas.jpg",
   ];
 
   useEffect(() => {

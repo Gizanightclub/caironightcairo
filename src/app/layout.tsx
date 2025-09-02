@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     description: "استمتع بأفضل السهرات الخليجية في أجواء فاخرة مع موسيقى حية وخدمة VIP متميزة. احجز الآن واحصل على خصومات تصل إلى 25%",
     images: [
       {
-        url: "https://nightclubcairo.vercel.app/images/og-image.jpg",
+        url: "https://nightclubcairo.vercel.app/images/nightclub7.jpeg",
         width: 1200,
         height: 630,
         alt: "أفضل نايت كلوب في مصر - سهرات خليجية ",
@@ -115,7 +115,7 @@ export const metadata: Metadata = {
     title: " نايت كلوب - احجز الآن",
     description: "استمتع بأفضل السهرات الخليجية والموسيقى الحية في أجواء فاخرة. احجز الآن: 01286110562",
     images: {
-      url: "https://nightclubcairo.vercel.app/images/twitter-image.jpg",
+      url: "https://nightclubcairo.vercel.app/images/nightclub1.jpeg",
       alt: "أفضل نايت كلوب في مصر - سهرات خليجية",
     },
   },
@@ -195,7 +195,7 @@ export default function RootLayout({
         />
         <link
           rel="preload"
-          href="/images/nightclub-hero.jpg"
+          href="/images/mmas.jpg"
           as="image"
           type="image/jpeg"
         />

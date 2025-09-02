@@ -144,7 +144,7 @@ const HeroSection = () => {
                 onClick={scrollToContact}
                 size="lg"
                 className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold text-lg px-6 py-5 rounded-full hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black"
-                aria-label="احجز الآن مع خصومات تبدأ من 20 بالمائة"
+                aria-label="احجز الآن مع خصومات تبدأ من 25 بالمائة"
               >
                 احجز الآن مع خصومات تبدأ من 20%
               </Button>
