@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Keyboard, A11y } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import { motion } from "framer-motion";
 import { Play, Pause, Volume2, VolumeX, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
@@ -61,7 +62,7 @@ const VideoCarousel = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false); // حالة تشغيل الفيديو
   const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<{ swiper: SwiperType } | null>(null);
 
   // مرجع للفيديو النشط
   const setVideoRef = (id: string, element: HTMLVideoElement | null) => {
@@ -125,7 +126,7 @@ const VideoCarousel = ({
   };
 
   // التعامل مع تغيير الشريحة
-  const handleSlideChange = (swiper: any) => {
+  const handleSlideChange = (swiper: SwiperType) => {
     setCurrentSlide(swiper.activeIndex);
 
     // إيقاف الفيديو النشط عند تغيير الشريحة

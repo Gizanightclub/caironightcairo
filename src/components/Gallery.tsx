@@ -17,7 +17,7 @@ const Gallery = () => {
       nextProgram();
     }, 4000);
     return () => clearInterval(interval);
-  }, [currentProgram]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-slide للحفلات السابقة
   useEffect(() => {
@@ -25,7 +25,7 @@ const Gallery = () => {
       nextPastEvent();
     }, 3000);
     return () => clearInterval(interval);
-  }, [currentPastEvent]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // بيانات البرامج اليومية
   const dailyPrograms = [
@@ -105,12 +105,12 @@ const Gallery = () => {
             <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
               معرض
             </span>
-      
+
             <span className="block text-yellow-400 text-2xl md:text-4xl mt-2">الفعاليات والحفلات</span>
           </h2>
         </motion.div>
 
-         
+
 
         {/* البرامج اليومية */}
         <div className="mb-16 md:mb-32">

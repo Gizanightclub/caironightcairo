@@ -153,7 +153,7 @@ export default function Home() {
                   "@type": "WebSite",
                   "@id": "https://nightclubcairo.vercel.app/#website",
                   "url": "https://nightclubcairo.vercel.app/",
-                  "name": "أفضل نايت كلوب في مصر",
+                  "name": "أفضل نايت كلوب  ",
                   "description": "احجز في أفضل نايت كلوب في مصر بأرخص الأسعار مع خصومات تصل إلى 25%",
                   "potentialAction": [
                     {

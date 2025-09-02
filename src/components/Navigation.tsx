@@ -67,7 +67,7 @@ const Navigation = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // إدارة التنقل بالكيبورد للقائمة المحمولة
   useEffect(() => {

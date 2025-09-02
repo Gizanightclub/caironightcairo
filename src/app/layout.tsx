@@ -35,7 +35,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   // العناوين الأساسية
   title: {
-    default: "أفضل نايت كلوب في مصر - احجز الآن بخصومات 25% | Night Club Egypt",
+    default: "أفضل نايت كلوب و ديسكو  - احجز الآن بخصومات 25% | Night Club ",
     template: "%s | أفضل نايت كلوب في مصر"
   },
   description: "احجز في أفضل نايت كلوب في مصر بأرخص الأسعار! سهرات خليجية فاخرة، موسيقى حية، طاولات VIP، وخصومات تصل إلى 25%. اتصل الآن: 01286110562",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   // الكلمات المفتاحية المحسنة
   keywords: [
     // الكلمات المفتاحية الأساسية المحدثة 2025
-    "نايت كلوب مصر", "أفضل نايت كلوب في مصر", "ملهى ليلي", "اسعار نايت كلوب", "Night Club", "نايت كلوب", "ارخص نايت كلوب", "سهرات خليجي", "نايت", "ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه",
+    "نايت كلوب مصر", "أفضل نايت كلوب في مصر", " سهرات نايت كلوب", "اسعار نايت كلوب", "Night Club", "نايت كلوب", "ارخص نايت كلوب", "سهرات خليجي", "نايت", "سهرات ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه",
 
     // المدن والمناطق المصرية - تحسين محلي
     "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب العجوزه", "نايت كلوب الشيخ زايد", "نايت كلوب الهرم", "نايت كلوب التجمع الخامس", "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك", "نايت كلوب المهندسين", "نايت كلوب مدينة نصر", "نايت كلوب مصر الجديدة", "نايت كلوب القاهرة الجديدة", "نايت كلوب الدقي",
@@ -63,10 +63,10 @@ export const metadata: Metadata = {
 
   // معلومات المؤلف والناشر
   authors: [
-    { name: "Night Club Egypt", url: "https://nightclubcairo.vercel.app" }
+    { name: "Night Club ", url: "https://nightclubcairo.vercel.app" }
   ],
-  creator: "Night Club Egypt",
-  publisher: "Night Club Egypt",
+  creator: "Night Club ",
+  publisher: "Night Club ",
 
   // إعدادات الفهرسة
   robots: {
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
         url: "https://nightclubcairo.vercel.app/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "أفضل نايت كلوب في مصر - سهرات خليجية فاخرة",
+        alt: "أفضل نايت كلوب في مصر - سهرات خليجية ",
         type: "image/jpeg",
       },
       {
@@ -112,7 +112,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@nightclub_egypt",
     creator: "@nightclub_egypt",
-    title: "أفضل نايت كلوب في مصر - احجز الآن",
+    title: " نايت كلوب - احجز الآن",
     description: "استمتع بأفضل السهرات الخليجية والموسيقى الحية في أجواء فاخرة. احجز الآن: 01286110562",
     images: {
       url: "https://nightclubcairo.vercel.app/images/twitter-image.jpg",
@@ -334,7 +334,7 @@ export default function RootLayout({
                 "height": 512
               },
               "image": "https://nightclubcairo.vercel.app/logo.png",
-              "description": "أفضل نايت كلوب في مصر يقدم سهرات خليجية فاخرة وخدمات VIP متميزة",
+              "description": "أفضل نايت كلوب في مصر يقدم سهرات خليجية  وخدمات VIP متميزة",
               "telephone": "+201286110562",
               "address": {
                 "@type": "PostalAddress",
