@@ -25,7 +25,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fbbf24' },
+    { media: '(prefers-color-scheme: light)', color: '#fffcfcff' },
     { media: '(prefers-color-scheme: dark)', color: '#000000' }
   ],
   colorScheme: 'dark light',
@@ -181,7 +181,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fbbf24" />
 
         {/* Web App Manifest */}
         <link rel="manifest" href="/site.webmanifest" />
@@ -295,26 +294,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Facebook Pixel */}
-        <Script
-          id="facebook-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
-              fbq('track', 'PageView');
-            `
-          }}
-        />
-
+      
         {/* JSON-LD Organization Schema */}
         <Script
           id="organization-schema"

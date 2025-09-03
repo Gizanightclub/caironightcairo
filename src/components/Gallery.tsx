@@ -22,9 +22,7 @@ const Gallery = () => {
   const pastEvents = [
     "/images/nightclub1.jpeg",
     "/images/nightclub0.jpeg",
-    "/images/nightclub3.jpeg",
     "/images/nightclub4.jpeg",
-    "/images/nightclub5.jpeg",
     "/images/nightclub7.jpeg",
     "/images/nightclub8.jpeg",
     "/images/nightclub9.jpeg",

@@ -32,22 +32,22 @@ interface VideoCarouselProps {
 }
 
 const defaultVideos: VideoData[] = [
-  {
-    id: "1",
-    src: "/videos/sasa.mp4",
-    poster: "images/nightclubegypt.com4.jpg",
-    title: "سهرة عصام صاصا مميزة",
-    description: "استمتع بأفضل السهرات   ",
-    duration: "30"
-  },
-  {
-    id: "2",
-    src: "/videos/rahma.mp4",
-    poster: "/images/nightclubegypt.com2.jpg",
-    title: "أجواء النايت كلوب",
-    description: "اكتشف الأجواء الفاخرة والترفيه المميز",
-    duration: "30"
-  },
+  //{
+   // id: "1",
+   // src: "/videos/sasa.mp4",
+   // poster: "images/nightclubegypt.com4.jpg",
+   //title: "سهرة عصام صاصا مميزة",
+   // description: "استمتع بأفضل السهرات   ",
+   // duration: "30"
+  //},
+  //{
+   // id: "2",
+   // src: "/videos/rahma.mp4",
+   // poster: "/images/nightclubegypt.com2.jpg",
+    //title: "أجواء النايت كلوب",
+    //description: "اكتشف الأجواء الفاخرة والترفيه المميز",
+    //duration: "30"
+  //},
   {
     id: "3",
     src: "/videos/sasa2.mp4",
