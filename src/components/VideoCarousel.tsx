@@ -34,20 +34,29 @@ interface VideoCarouselProps {
 const defaultVideos: VideoData[] = [
   {
     id: "1",
-    src: "/videos/nightclub-promo.mp4",
-    poster: "/images/nightclub1.jpeg",
-    title: "سهرة خليجي مميزة",
-    description: "استمتع بأفضل السهرات الخليجية  ",
-    duration: "2:30"
+    src: "/videos/sasa.mp4",
+    poster: "images/nightclubegypt.com4.jpg",
+    title: "سهرة عصام صاصا مميزة",
+    description: "استمتع بأفضل السهرات   ",
+    duration: "30"
   },
   {
     id: "2",
-    src: "/videos/nightlife.mp4",
+    src: "/videos/rahma.mp4",
     poster: "/images/nightclubegypt.com2.jpg",
     title: "أجواء النايت كلوب",
     description: "اكتشف الأجواء الفاخرة والترفيه المميز",
-    duration: "1:45"
+    duration: "30"
+  },
+  {
+    id: "3",
+    src: "/videos/sasa2.mp4",
+    poster: "images/bestnightclb.jpg",
+    title: "افضل السهرات ",
+    description: "افضل بروجرام يوميا",
+    duration: "25"
   }
+   
 ];
 
 const VideoCarousel = ({
@@ -198,7 +207,7 @@ const VideoCarousel = ({
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            <span className="text-yellow-400">شاهد</span> أجواء النايت كلوب
+            <span className="text-yellow-400">شاهد</span> فيديوهات من داخل النايت كلوب
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             استمتع بمشاهدة أفضل اللحظات من سهراتنا المميزة والأجواء الفاخرة
@@ -270,7 +279,7 @@ const VideoCarousel = ({
             {videos.map((video, index) => (
               <SwiperSlide key={video.id} className="relative">
                 <div
-                  className="relative aspect-video bg-black rounded-2xl overflow-hidden group cursor-pointer transform transition-all duration-500 hover:scale-105"
+                   className="relative w-full h-[40vh] bg-black rounded-2xl overflow-hidden group cursor-pointer shadow-lg border border-gray-800 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500"
                   onKeyDown={(e) => handleKeyDown(e, video.id)}
                   tabIndex={0}
                   role="button"
@@ -448,7 +457,7 @@ const VideoCarousel = ({
         }
 
         .swiper-pagination-bullet-active-custom {
-          background: rgba(251, 191, 36, 1) !important;
+          background: rgba(22, 22, 20, 1) !important;
           transform: scale(1.25) !important;
         }
 

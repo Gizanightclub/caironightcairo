@@ -3,21 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Music, Calendar, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 const Gallery = () => {
-  const [currentProgram, setCurrentProgram] = useState(0);
   const [currentPastEvent, setCurrentPastEvent] = useState(0);
   const [particles, setParticles] = useState<Array<{ left: string; top: string; delay: string }>>([]);
-
-  // Auto-slide للبرامج اليومية
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextProgram();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-slide للحفلات السابقة
   useEffect(() => {
@@ -26,15 +17,6 @@ const Gallery = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // بيانات البرامج اليومية
-  const dailyPrograms = [
-    "/images/nightclubegypt.com2.jpg",
-    "/images/nightclubegypt.com6.jpg",
-    "/images/nightclubegypt.com9.jpg",
-    "/images/nightclubegypt.com15.jpg",
-    "/images/nightclubegypt.com.jpg",
-  ];
 
   // بيانات الحفلات السابقة
   const pastEvents = [
@@ -58,14 +40,6 @@ const Gallery = () => {
     setParticles(newParticles);
   }, []);
 
-  const nextProgram = () => {
-    setCurrentProgram((prev) => (prev + 1) % dailyPrograms.length);
-  };
-
-  const prevProgram = () => {
-    setCurrentProgram((prev) => (prev - 1 + dailyPrograms.length) % dailyPrograms.length);
-  };
-
   const nextPastEvent = () => {
     setCurrentPastEvent((prev) => (prev + 1) % pastEvents.length);
   };
@@ -81,7 +55,10 @@ const Gallery = () => {
       aria-labelledby="gallery-title"
     >
       {/* خلفية متحركة */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black" aria-hidden="true">
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black"
+        aria-hidden="true"
+      >
         {particles.map((particle, i) => (
           <div
             key={i}
@@ -111,97 +88,11 @@ const Gallery = () => {
             <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
               معرض
             </span>
-            <span className="block text-yellow-400 text-2xl md:text-4xl mt-2">الفعاليات والحفلات</span>
+            <span className="block text-yellow-400 text-2xl md:text-4xl mt-2">
+              الفعاليات والحفلات
+            </span>
           </h2>
         </motion.div>
-
-
-
-        {/* البرامج اليومية */}
-        <div className="mb-16 md:mb-32" role="region" aria-labelledby="daily-programs-title">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-center gap-2 md:gap-4 mb-4 md:mb-8"
-          >
-            <Music className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" aria-hidden="true" />
-            <h3 id="daily-programs-title" className="text-xl md:text-3xl font-bold text-white">البرامج اليومية</h3>
-            <Calendar className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" aria-hidden="true" />
-          </motion.div>
-
-          <div className="relative max-w-6xl mx-auto">
-            <div
-              className="relative h-[50vh] md:h-[70vh] rounded-xl overflow-hidden shadow-2xl bg-black/50 border-2 border-purple-500/30"
-              role="img"
-              aria-label={`صورة برنامج يومي ${currentProgram + 1} من ${dailyPrograms.length}`}
-            >
-              <AnimatePresence mode="popLayout">
-                <motion.div
-                  key={currentProgram}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative w-full h-full"
-                >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Image
-                      src={dailyPrograms[currentProgram]}
-                      alt={`برنامج يومي ${currentProgram + 1} - أجواء فاخرة ومميزة في النايت كلوب`}
-                      width={800}
-                      height={600}
-                      className="max-w-full max-h-full object-contain"
-                      quality={85}
-                      loading="lazy"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                      placeholder="blur"
-                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                    />
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              <Button
-                onClick={prevProgram}
-                variant="ghost"
-                size="icon"
-                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 border border-purple-500/30 hover:bg-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black"
-                aria-label="البرنامج السابق"
-              >
-                <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-purple-400" aria-hidden="true" />
-              </Button>
-
-              <Button
-                onClick={nextProgram}
-                variant="ghost"
-                size="icon"
-                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 border border-purple-500/30 hover:bg-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black"
-                aria-label="البرنامج التالي"
-              >
-                <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-purple-400" aria-hidden="true" />
-              </Button>
-            </div>
-
-            {/* مؤشرات الصور */}
-            <div className="flex justify-center mt-4 space-x-2 space-x-reverse" role="tablist" aria-label="اختيار برنامج يومي">
-              {dailyPrograms.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentProgram(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black ${
-                    index === currentProgram
-                      ? 'bg-yellow-400 scale-125'
-                      : 'bg-gray-600 hover:bg-gray-400'
-                  }`}
-                  role="tab"
-                  aria-selected={index === currentProgram}
-                  aria-label={`عرض البرنامج اليومي ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* الحفلات السابقة */}
         <div role="region" aria-labelledby="past-events-title">
@@ -211,16 +102,29 @@ const Gallery = () => {
             transition={{ duration: 0.6 }}
             className="flex items-center justify-center gap-2 md:gap-4 mb-4 md:mb-8"
           >
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" aria-hidden="true" />
-            <h3 id="past-events-title" className="text-xl md:text-3xl font-bold text-white">حفلاتنا السابقة</h3>
-            <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" aria-hidden="true" />
+            <Sparkles
+              className="w-6 h-6 md:w-8 md:h-8 text-yellow-400"
+              aria-hidden="true"
+            />
+            <h3
+              id="past-events-title"
+              className="text-xl md:text-3xl font-bold text-white"
+            >
+              حفلاتنا السابقة
+            </h3>
+            <Sparkles
+              className="w-6 h-6 md:w-8 md:h-8 text-yellow-400"
+              aria-hidden="true"
+            />
           </motion.div>
 
           <div className="relative max-w-6xl mx-auto">
             <div
               className="relative h-[50vh] md:h-[70vh] rounded-xl overflow-hidden shadow-2xl bg-black/50 border-2 border-purple-500/30"
               role="img"
-              aria-label={`صورة حفلة سابقة ${currentPastEvent + 1} من ${pastEvents.length}`}
+              aria-label={`صورة حفلة سابقة ${
+                currentPastEvent + 1
+              } من ${pastEvents.length}`}
             >
               <AnimatePresence mode="popLayout">
                 <motion.div
@@ -232,18 +136,16 @@ const Gallery = () => {
                   className="relative w-full h-full"
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Image
-                      src={pastEvents[currentPastEvent]}
-                      alt={`حفلة سابقة ${currentPastEvent + 1} - لحظات مميزة من سهراتنا الفاخرة`}
-                      width={800}
-                      height={600}
-                      className="max-w-full max-h-full object-contain"
-                      quality={85}
-                      loading="lazy"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                      placeholder="blur"
-                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                    />
+<Image
+  src={pastEvents[currentPastEvent]}
+  alt={`حفلة سابقة ${currentPastEvent + 1}`}
+  fill
+  className="object-cover"
+  quality={85}
+  loading="lazy"
+/>
+
+                    
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -255,7 +157,10 @@ const Gallery = () => {
                 className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 border border-purple-500/30 hover:bg-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black"
                 aria-label="الحفلة السابقة"
               >
-                <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-purple-400" aria-hidden="true" />
+                <ChevronLeft
+                  className="w-4 h-4 md:w-5 md:h-5 text-purple-400"
+                  aria-hidden="true"
+                />
               </Button>
 
               <Button
@@ -265,20 +170,27 @@ const Gallery = () => {
                 className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/70 border border-purple-500/30 hover:bg-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black"
                 aria-label="الحفلة التالية"
               >
-                <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-purple-400" aria-hidden="true" />
+                <ChevronRight
+                  className="w-4 h-4 md:w-5 md:h-5 text-purple-400"
+                  aria-hidden="true"
+                />
               </Button>
             </div>
 
             {/* مؤشرات الصور */}
-            <div className="flex justify-center mt-4 space-x-2 space-x-reverse" role="tablist" aria-label="اختيار حفلة سابقة">
+            <div
+              className="flex justify-center mt-4 space-x-2 space-x-reverse"
+              role="tablist"
+              aria-label="اختيار حفلة سابقة"
+            >
               {pastEvents.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentPastEvent(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black ${
                     index === currentPastEvent
-                      ? 'bg-yellow-400 scale-125'
-                      : 'bg-gray-600 hover:bg-gray-400'
+                      ? "bg-yellow-400 scale-125"
+                      : "bg-gray-600 hover:bg-gray-400"
                   }`}
                   role="tab"
                   aria-selected={index === currentPastEvent}
